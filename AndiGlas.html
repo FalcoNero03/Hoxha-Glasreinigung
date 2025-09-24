@@ -239,8 +239,17 @@
 
       .hero-subtitle {
         font-size: 1.8rem;
+        margin-bottom: 15px;
+        font-weight: 300;
+      }
+
+      .hero-guarantee {
+        font-size: 1.4rem;
         margin-bottom: 30px;
         font-weight: 300;
+        font-style: italic;
+        color: var(--white);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       }
 
       .btn {
@@ -336,7 +345,22 @@
         color: #666;
         line-height: 1.8;
       }
+/* Banner/Highlight-Sektion */
+.guarantee-banner {
+    padding: 30px 0;
+    background-color: var(--primary-orange);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
+.guarantee-banner i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
       /* Über uns-Sektion */
       .about {
         padding: 100px 0;
@@ -974,6 +998,7 @@
       <div class="hero-content">
         <h1>Glasklarer Durchblick mit HOXHA Glasreinigung</h1>
         <p class="hero-subtitle">Professionell · Zuverlässig · Regional</p>
+        <p class="hero-guarantee">Mit Zufriedenheitsgarantie</p>
         <a href="#kontakt" class="btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </section>
@@ -1023,8 +1048,30 @@
               einladende Optik.
             </p>
           </div>
+          <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Photovoltaik-Reinigung</h3>
+                    <p>Schonende Reinigung von Solaranlagen und Photovoltaik-Panels für maximale Effizienz und lange Lebensdauer.</p>
+                </div>
+           <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <h3>Rolloreinigung</h3>
+                    <p>Professionelle Reinigung von Rollos und Jalousien für ein makelloses Erscheinungsbild und optimale Funktionalität bis zu 20 m.</p>
+                </div>
+            </div> 
         </div>
       </div>
+    </section>
+    <!-- Banner/Highlight-Sektion -->
+<section class="guarantee-banner">
+        <div class="container">
+            <i class="fas fa-check-circle"></i>
+            100 % Zufriedenheitsgarantie – Wir reinigen nach, bis Sie zufrieden sind.
+        </div>
     </section>
 
     <!-- Über uns-Sektion -->
@@ -1059,19 +1106,19 @@
           <div class="gallery-item">
             <img
               src="IMG-20250923-WA0025.jpg"
-              alt="Glasreinigung Wintergarten"
+              alt="Glasreinigung Sonnendach"
             />
           </div>
           <div class="gallery-item">
             <img
               src="IMG-20250923-WA0048.jpg"
-              alt="Glasreinigung Sonnenterasse"
+              alt="Glasreinigung Terrassendach"
             />
           </div>
           <div class="gallery-item">
             <img
               src="IMG-20250923-WA0056.jpg"
-              alt="Glasreinigung Terrassendach"
+              alt="Glasreinigung Wintergarten "
             />
           </div>
           <div class="gallery-item">
@@ -1083,6 +1130,11 @@
           <div class="gallery-item">
             <img src="IMG-20250923-WA0050.jpg" alt="Glasreinigung Fassade" />
           </div>
+            <div class="gallery-item">
+                <img src="Fotovoltaik2.jpg" alt="Fotovoltaik" />
+        </div>
+        <div class="gallery-item">
+                <img src="FotovoltaikundRollo.jpg" alt="Fotovoltaik" />
         </div>
       </div>
     </section>
@@ -1102,15 +1154,15 @@
                         </p>
 
               <div class="form-group">
-                <label for="firstname">Vorname</label>
+                <label for="firstname">Vorname *</label>
                 <input type="text" id="firstname" name="firstname" required />
               </div>
               <div class="form-group">
-                <label for="lastname">Nachname</label>
+                <label for="lastname">Nachname *</label>
                 <input type="text" id="lastname" name="lastname" required />
               </div>
               <div class="form-group">
-                <label for="email">E-Mail</label>
+                <label for="email">E-Mail *</label>
                 <input type="email" id="email" name="email" required />
               </div>
               <div class="form-group">
@@ -1122,14 +1174,14 @@
                 <input type="text" id="address" name="address" />
               </div>
               <div class="form-group">
-                <label for="message">Nachricht</label>
+                <label for="message">Nachricht *</label>
                 <textarea id="message" name="message" required></textarea>
               </div>
               <div class="checkbox-group">
                 <input type="checkbox" id="privacy" name="privacy" required />
                 <label for="privacy"
                   >Ich akzeptiere die
-                  <a href="#">Datenschutzerklärung</a></label
+                  <a href="#">Datenschutzerklärung *</a></label
                 >
               </div>
               <button type="submit" class="btn">Anfrage absenden</button>
