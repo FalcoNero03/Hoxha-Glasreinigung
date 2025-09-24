@@ -3,8 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="normal" />
-    <meta name="color-profile" content="sRGB" />
+    <meta name="color-scheme" content="only light" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="forced-colors" content="none" />
     <title>HOXHA Glasreinigung - Professionelle Fensterreinigung</title>
     <link
       rel="stylesheet"
@@ -12,15 +22,22 @@
     />
     <style>
       /* Allgemeine Stile */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: light;
+        }
+      }
+
       :root {
-        --primary-orange: rgb(242, 140, 0);
-        --primary-blue: rgb(0, 149, 217);
-        --white: rgb(255, 255, 255);
-        --light-gray: rgb(245, 245, 245);
-        --medium-gray: rgb(224, 224, 224);
-        --dark-gray: rgb(51, 51, 51);
-        --dark-blue: rgb(0, 51, 102);
-        --logo-gray: rgb(240, 240, 240);
+        --primary-orange: #ff8c00;
+        --primary-blue: #0095d9;
+        --white: #ffffff;
+        --light-gray: #f5f5f5;
+        --medium-gray: #e0e0e0;
+        --dark-gray: #333333;
+        --dark-blue: #003366;
+        --logo-gray: #f0f0f0;
+        color-scheme: light;
       }
 
       * {
@@ -30,11 +47,26 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
+      html {
+        color-scheme: light !important;
+        forced-color-adjust: none;
+        background-color: var(--white) !important;
+      }
+
       body {
-        color: var(--dark-gray);
+        color: var(--dark-gray) !important;
         line-height: 1.6;
         background-color: var(--white) !important;
-        color-scheme: light;
+        color-scheme: light !important;
+        -ms-high-contrast: none !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          forced-color-adjust: none !important;
+          background-color: var(--white) !important;
+          color: var(--dark-gray) !important;
+        }
       }
 
       .container {
@@ -404,6 +436,15 @@
           var(--logo-gray) 0%,
           var(--white) 100%
         );
+        forced-color-adjust: none !important;
+        color-scheme: light !important;
+      }
+
+      @supports (-webkit-appearance: none) {
+        .contact {
+          -webkit-appearance: none;
+          background-color: var(--white) !important;
+        }
       }
 
       .contact-container {
@@ -486,7 +527,7 @@
           var(--primary-blue) 0%,
           var(--dark-blue) 100%
         );
-        color: var(--white);
+        color: var(--white) !important;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -495,27 +536,19 @@
       }
 
       .contact-info h3 {
-        color: var(--white);
+        color: var(--white) !important;
         margin-bottom: 30px;
         font-size: 1.8rem;
         position: relative;
         padding-bottom: 15px;
-      }
-
-      .contact-info h3:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background-color: var(--primary-orange);
+        text-align: left;
       }
 
       .contact-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: 25px;
+        text-align: left;
       }
 
       .contact-item i {
@@ -530,6 +563,26 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+          flex-shrink: 0;
+            margin-top: 5px;
+      }
+
+      .contact-item span {
+        display: block;
+        line-height: 1.6;
+        color: var(--white) !important;
+        padding-top: 5px; 
+
+      }
+
+      .contact-info h3:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-orange);
       }
 
       /* Footer */
@@ -832,6 +885,7 @@
         .contact-item {
           flex-wrap: wrap;
           text-align: left;
+          align-items: flex-start;
         }
 
         .contact-item span {
@@ -1039,7 +1093,13 @@
         <h2>Kontaktieren Sie uns</h2>
         <div class="contact-container">
           <div class="contact-form">
-            <form id="contact-form">
+            <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact" />
+                <!-- Honeypot field hilft gegen Spam-->
+                <p style="display:none">
+                    <label>Leave this empty: <input name="fax"></label>
+                        </p>
+
               <div class="form-group">
                 <label for="firstname">Vorname</label>
                 <input type="text" id="firstname" name="firstname" required />
