@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Unwichtige Seiten für Suchmaschinen blockieren
+Disallow: /impressum
+Disallow: /datenschutzerkl%C3%A4rung.html
+
+# Sitemap
+Sitemap: https://hoxha-glasreinigung.de/sitemap.xml
